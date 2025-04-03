@@ -7,13 +7,17 @@
     <style>
         body {
             justify-content: center;
+            margin: 0; /* body のデフォルトの margin を削除 */
+            padding: 0; /* body のデフォルトの padding を削除 */
         }
         .gallery {
-            width: 1200px;
+            width: 95%; /* 画面幅に合わせて調整 */
+            max-width: 1200px; /* 最大幅を設定 */
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 列の最小幅を調整 */
             gap: 20px;
             padding: 20px;
+            box-sizing: border-box; /* padding を width に含める */
         }
         .gallery > div {
             border: 1px solid #ddd;
@@ -22,8 +26,8 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .photo {
-            width: auto;
-            height: 300px;
+            width: 100%; /* 親要素に合わせて幅を調整 */
+            height: auto; /* 高さを自動調整 */
             display: block;
             object-fit: cover;
         }
@@ -41,12 +45,20 @@
         .height, .weight {
             margin-right: 10px;
         }
+        h1 {
+            width: 95%; /* 画面幅に合わせて調整 */
+            max-width: 1200px; /* 最大幅を設定 */
+            overflow: hidden;
+            height: 40px;
+            box-sizing: border-box; /* padding を width に含める */
+        }
     </style>
 </head>
 <body>
     <div id="content"></div>
     <script>
         const robotData = [
+            // ここにロボットのデータ（前回と同じ）
             {
                 "name": "Unitree G1",
                 "company": "Unitree",
