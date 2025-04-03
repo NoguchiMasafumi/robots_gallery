@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>robots gallery</title>
+    <style>
+        body {
+            justify-content: center;
+        }
+        .gallery {
+            width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .gallery > div {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .photo {
+            width: auto;
+            height: 300px;
+            display: block;
+            object-fit: cover;
+        }
+        .info {
+            padding: 15px;
+        }
+        .name {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .company, .nation {
+            margin-bottom: 5px;
+        }
+        .height, .weight {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+        const robotData = [
+            {
+                "name": "Unitree G1",
+                "company": "Unitree",
+                "nation": "中国",
+                "height": "",
+                "weight": "",
+                "image": "https://www.unitree.com/images/a0e8042bd2df4c47af28ff371bb6b4fa_2740x1720.jpg",
+                "category": "Humanoid Robots"
+            },
+            {
+                "name": "PUDU 09",
+                "company": "Pudu Robotics",
+                "nation": "中国",
+                "height": "高さ: 170cm",
+                "weight": "重さ: 65kg",
+                "image": "https://prcdn.freetls.fastly.net/release_image/87027/51/87027-51-0c51962b2520d91de6896ae3854126f6-3900x2194.png",
+                "category": "Humanoid Robots"
+            },
+            {
+                "name": "フォアランナー",
+                "company": "ケプラー",
+                "nation": "中国",
+                "height": "高さ: 178cm",
+                "weight": "重さ: 85kg",
+                "image": "https://img.php.cn/upload/article/000/465/014/170047311953732.jpg",
+                "category": "Humanoid Robots"
+            },
+            {
+                "name": "4NE-1",
+                "company": "NEURA Robotics",
+                "nation": "ドイツ",
+                "height": "高さ: 180cm",
+                "weight": "重さ: 80kg",
+                "image": "https://neurarobotics.px.media/plk/4NE-1_all_areas_of_life.webp",
+                "category": "Humanoid Robots"
+            },
+            {
+                "name": "GR-2",
+                "company": "Fourier",
+                "nation": "中国",
+                "height": "高さ: 175cm",
+                "weight": "重さ: 65kg",
+                "image": "https://www.fftai.com/uploads/upload/images/20240925/1fd588eedccf47be6f938a05564cd15e.png",
+                "category": "Humanoid Robots"
+            },
+                {
+                "name": "1X Neo Beta",
+                "company": "1X Technologies",
+                "nation": "ノルウェー",
+                "height": "高さ: 165cm",
+                "weight": "重さ: 30kg",
+                "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iNZ1d2EnzDno/v0/1200x800.webp",
+                "category": "Humanoid Robots"
+            },
+                {
+                "name": "Digit",
+                "company": "Agility Robotics",
+                "nation": "アメリカ",
+                "height": "高さ: 175cm",
+                "weight": "",
+                "image": "https://japan.cnet.com/storage/2023/04/04/9b83c6e6f9884871e972a3c2839d6f88/agility-robotics-digit-7.jpg",
+                "category": "Humanoid Robots"
+            },
+                {
+                "name": "Figure 02",
+                "company": "Figure",
+                "nation": "アメリカ",
+                "height": "",
+                "weight": "",
+                "image": "https://www.therobotreport.com/wp-content/uploads/2024/08/figure02-torso-768x701.jpg",
+                "category": "Humanoid Robots"
+            },
+                {
+                "name": "Atlas",
+                "company": "Boston Dynamics",
+                "nation": "アメリカ",
+                "height": "",
+                "weight": "",
+                "image": "https://www.thedigitalspeaker.com/content/images/size/w2000/2024/04/Boston-Dynamics-New-Atlas.webp",
+                "category": "Humanoid Robots"
+            },
+                {
+                "name": "Qinglong（青龍）",
+                "company": "人形機器人創新中心",
+                "nation": "中国",
+                "height": "",
+                "weight": "",
+                "image": "https://www.techsoft-robots.com/edit_file/image/20240708/2024070810265028.jpg",
+                "category": "Humanoid Robots"
+            },
+                {
+                "name": "TLIBOT T1 Pro",
+                "company": "TLIBOT",
+                "nation": "中国",
+                "height": "",
+                "weight": "",
+                "image": "https://s3.eu-west-3.amazonaws.com/virtual-industry/_productMain/896094/TLIBOT.webp",
+                "category": "Humanoid Robots"
+            },
+                  {
+                "name": "Optimus",
+                "company": "Tesla",
+                "nation": "アメリカ",
+                "height": "",
+                "weight": "",
+                "image": "https://i.gzn.jp/img/2023/12/14/tesla-optimus-gen2/00.jpg",
+                "category": "Humanoid Robots"
+            },
+                {
+                "name": "Spot",
+                "company": "Boston Dynamics",
+                "nation": "アメリカ",
+                "height": "",
+                "weight": "",
+                "image": "https://bostondynamics.com/wp-content/uploads/2023/05/spot-explorer-web-2-768x432.jpg",
+                "category": "Four-Legged Robots"
+            },
+                {
+                "name": "Go2",
+                "company": "Unitree",
+                "nation": "中国",
+                "height": "",
+                "weight": "",
+                "image": "https://www.unitree.com/images/65264e97e81744409042d34bf3ba6da6_400x400.png",
+                "category": "Four-Legged Robots"
+            },
+                {
+                "name": "AlianGo",
+                "company": "Unitree",
+                "nation": "中国",
+                "height": "",
+                "weight": "",
+                "image": "http://www.nihonbinary.co.jp/Products/Robot/image/Unitree/aliango_001.jpg",
+                "category": "Four-Legged Robots"
+            },
+                {
+                "name": "B2-W",
+                "company": "Unitree",
+                "nation": "中国",
+                "height": "",
+                "weight": "",
+                "image": "https://shop.unitree.com/cdn/shop/files/1_8046f099-5c7f-48b9-bf2a-a9738b5e7adf.jpg?v=1718273940",
+                "category": "Four-Legged Robots"
+            },
+                {
+                "name": "Lynx",
+                "company": "DEEPRobotics",
+                "nation": "中国",
+                "height": "",
+                "weight": "",
+                "image": "https://deeprobotics.cn/public/static/robot/demo/p_cat.jpg",
+                "category": "Four-Legged Robots"
+            }
+        ];
+
+        const contentDiv = document.getElementById('content');
+        const categories = [...new Set(robotData.map(item => item.category))];
+        categories.forEach(category => {
+            const h1 = document.createElement('h1');
+            h1.style.width = '1200px';
+            h1.style.overflow = 'hidden';
+            h1.style.height = '40px';
+            h1.textContent = category;
+            contentDiv.appendChild(h1);
+            const galleryDiv = document.createElement('div');
+            galleryDiv.className = 'gallery';
+            robotData.filter(item => item.category === category).forEach(robot => {
+                const robotDiv = document.createElement('div');
+                robotDiv.innerHTML = `
+                    <img class='photo' src='${robot.image}'>
+                    <div class="info">
+                        <div class='name'>${robot.name}</div>
+                        <div class='company'>${robot.company}</div>
+                        <div class='nation'>${robot.nation}</div>
+                        <div>
+                            <span class='height'>${robot.height}</span>
+                            <span class='weight'>${robot.weight}</span>
+                        </div>
+                    </div>
+                `;
+                galleryDiv.appendChild(robotDiv);
+            });
+            contentDiv.appendChild(galleryDiv);
+        });
+    </script>
+</body>
+</html>
