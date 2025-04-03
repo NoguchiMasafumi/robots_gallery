@@ -11,7 +11,7 @@
             padding: 0;
         }
         .gallery {
-            width: 95%;
+            width: 100%; /* 幅を100%に設定 */
             max-width: 1200px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -57,6 +57,7 @@
         @media (max-width: 600px) {
             .gallery {
                 grid-template-columns: 1fr; /* 1列にする */
+                width: 100%; /* 幅を100%に設定 */
             }
         }
     </style>
