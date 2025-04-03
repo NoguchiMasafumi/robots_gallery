@@ -7,17 +7,17 @@
     <style>
         body {
             justify-content: center;
-            margin: 0; /* body のデフォルトの margin を削除 */
-            padding: 0; /* body のデフォルトの padding を削除 */
+            margin: 0;
+            padding: 0;
         }
         .gallery {
-            width: 95%; /* 画面幅に合わせて調整 */
-            max-width: 1200px; /* 最大幅を設定 */
+            width: 95%;
+            max-width: 1200px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 列の最小幅を調整 */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             padding: 20px;
-            box-sizing: border-box; /* padding を width に含める */
+            box-sizing: border-box;
         }
         .gallery > div {
             border: 1px solid #ddd;
@@ -26,8 +26,8 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .photo {
-            width: 100%; /* 親要素に合わせて幅を調整 */
-            height: auto; /* 高さを自動調整 */
+            width: 100%;
+            height: auto;
             display: block;
             object-fit: cover;
         }
@@ -46,17 +46,25 @@
             margin-right: 10px;
         }
         h1 {
-            width: 95%; /* 画面幅に合わせて調整 */
-            max-width: 1200px; /* 最大幅を設定 */
+            width: 95%;
+            max-width: 1200px;
             overflow: hidden;
             height: 40px;
-            box-sizing: border-box; /* padding を width に含める */
+            box-sizing: border-box;
+        }
+
+        /* スマートフォン向けスタイル */
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr 1fr; /* 2列にする */
+            }
         }
     </style>
 </head>
 <body>
     <div id="content"></div>
     <script>
+      //ここに前回のjavascriptを記載
         const robotData = [
             // ここにロボットのデータ（前回と同じ）
             {
